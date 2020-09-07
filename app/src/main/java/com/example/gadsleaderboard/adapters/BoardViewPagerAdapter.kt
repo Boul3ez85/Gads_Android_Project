@@ -3,6 +3,7 @@ package com.example.gadsleaderboard.adapters
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.gadsleaderboard.UI.LearningLeaderFragment
 
 class BroadViewPagerAdapter(fragment: FragmentActivity) : FragmentStateAdapter(fragment) {
     override fun getItemCount(): Int = TABS.size
@@ -12,14 +13,14 @@ class BroadViewPagerAdapter(fragment: FragmentActivity) : FragmentStateAdapter(f
     }
 
     operator fun get(pos: Int): Fragment = when (pos) {
-        0 ->
-        else ->
+        0 -> LearningLeaderFragment()
+        else -> LearningLeaderFragment()
     }
     companion object {
         @JvmStatic
         val TABS = arrayOf(
             "Learning Leaders",
-            "Skil IQ Leaders"
+            "Skill IQ Leaders"
         )
     }
 }

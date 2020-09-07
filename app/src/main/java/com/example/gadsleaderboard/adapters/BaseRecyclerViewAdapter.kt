@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.RecyclerView
 
-abstract class BaseRecyclerViewAdapter<M, ViewHolder : BaseRecyclerViewAdapter.ViewHolder<>>(
+abstract class BaseRecyclerViewAdapter<M, ViewHolder : BaseRecyclerViewAdapter.ViewHolder<M>>(
     @LayoutRes var layout: Int,
     listItems: List<M> = listOf()
 ) :
@@ -32,8 +32,8 @@ abstract class BaseRecyclerViewAdapter<M, ViewHolder : BaseRecyclerViewAdapter.V
         holder.bind(listItems[position], position)
     }
 
-    abstract class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        abstract fun <M> bind(m: M, position: Int)
+    abstract class ViewHolder<T>(view: View) : RecyclerView.ViewHolder(view) {
+        abstract fun bind(m: T, position: Int)
     }
 
     abstract fun initViewHolder(inflate: View): ViewHolder
