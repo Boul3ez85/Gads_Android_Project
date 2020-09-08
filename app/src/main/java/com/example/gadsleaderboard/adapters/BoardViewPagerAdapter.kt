@@ -14,7 +14,7 @@ class BroadViewPagerAdapter(fragment: FragmentActivity) : FragmentStateAdapter(f
 
     operator fun get(pos: Int): Fragment = when (pos) {
         0 -> LearningLeaderFragment()
-        else -> LearningLeaderFragment()
+        else -> SkillIQFragment()
     }
     companion object {
         @JvmStatic

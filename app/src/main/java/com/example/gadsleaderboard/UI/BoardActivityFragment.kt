@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.gadsleaderboard.R
 import com.example.gadsleaderboard.adapters.BaseRecyclerViewAdapter
 
-abstract class BoardActivityFragment : BaseFragment(R.layout.fragment_board_activity) {
-    lateinit var adapter: BaseRecyclerViewAdapter<*, *>
+abstract class BoardActivityFragment<T> : BaseFragment(R.layout.fragment_board_activity) {
+    lateinit var adapter: BaseRecyclerViewAdapter<T, out BaseRecyclerViewAdapter.ViewHolder<T>>
     val listLearners by lazy {
         view?.findViewById<RecyclerView>(R.id.list_learners)
     }
@@ -31,5 +31,5 @@ abstract class BoardActivityFragment : BaseFragment(R.layout.fragment_board_acti
         listLearners?.adapter = adapter
     }
 
-    abstract fun initAdapter(): BaseRecyclerViewAdapter<*, *>
+    abstract fun initAdapter(): BaseRecyclerViewAdapter<T, out BaseRecyclerViewAdapter.ViewHolder<T>>
 }
